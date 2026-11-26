@@ -1,10 +1,10 @@
 # D10 — Development Roadmap and Acceptance Gates
 
-**Project:** Interstellar Meridian  
-**Document license:** CC BY 4.0 — © 2026 JohnnyPi and Interstellar Meridian contributors, to the extent they hold rights; see [license](https://creativecommons.org/licenses/by/4.0/). Official branding and separately identified third-party material excluded.  
-**Version:** 0.1.1 | 2026-11-26  
-**Status:** Proposed implementation roadmap for owner review; no implementation authorization.  
-**Authority:** D0 v1.1.1 and D1 v2.1.1 govern requirements; D6A v0.2.1 and D6B v0.2.1 govern worldbuilding at their stated canon/proposal status. D10 sequences work, specifies evidence and records gates; it does not supersede product requirements.  
+**Project:** Interstellar Meridian\
+**Document license:** CC BY 4.0 — © 2026 JohnnyPi and Interstellar Meridian contributors, to the extent they hold rights; see [license](https://creativecommons.org/licenses/by/4.0/). Official branding and separately identified third-party material excluded.\
+**Version:** 0.1.3 — final review | 2026-11-26\
+**Status:** Final review baseline; owner approved streamlined verification on 2026-11-26; consolidated contract acceptance and banking pending. T4 remains blocked.\
+**Authority:** D0 v1.1.1 and D1 v2.1.1 govern requirements; D6A v0.2.1 and D6B v0.2.1 govern worldbuilding at their stated canon/proposal status. D10 sequences work, specifies evidence and records gates; it does not supersede product requirements.\
 **Repository:** https://github.com/JohnnyPi/InterstellarMeridian | `main` | Windows x64 | Rust + Bevy | MIT OR Apache-2.0 (project-owned code).
 
 ## 1. Delivery strategy
@@ -19,8 +19,8 @@ Status vocabulary: **Pending**, **In progress**, **Blocked**, **Ready for review
 |---|---|---|---|
 | T0 | Product vision | None | Accepted at original substantive scope; migration review separate |
 | T1 | High-level design | T0 | Accepted at original substantive scope; migration review separate |
-| T2 | Independent project establishment | T1 | In progress |
-| T3 | Technical foundation contracts | T2 | Pending |
+| T2 | Independent project establishment | T1 | Accepted 2026-11-26 |
+| T3 | Technical foundation contracts | T2 | Ready for review; T3.1 accepted |
 | T4 | Executable Rust/Bevy foundation | T3 | Pending |
 | T5 | Headless causal sandbox | T4 | Pending |
 | T6 | Flight graybox | T4; ordered after T5 by default | Pending |
@@ -31,6 +31,8 @@ T5 and T6 are complementary proofs. The owner may explicitly reorder them or aut
 ## 3. T2 — Independent project establishment
 
 **Goal:** A clean, independently authored project, with accepted documents and a reproducible handoff to the new ChatGPT Project.
+
+**Closure update (2026-11-26):** T2 accepted; baseline `40e04d0747c565513cfddcbb092c1ae7616a4ab0` confirmed synchronized and clean with no stashes in final T3.1 probe output. Following T2 table/checklist historical, not open gates.
 
 | ID | Acceptance criterion | Evidence / current disposition |
 |---|---|---|
@@ -64,7 +66,7 @@ git rev-parse HEAD
 git rev-parse origin/main
 ```
 
-**Stop:** T2 acceptance is required before T3. Do not initialize the Rust application yet.
+**Stop (historical):** T2 accepted; production remains blocked until T3 and T4 plan accepted.
 
 ## 4. T3 — Technical foundation contracts
 
@@ -83,6 +85,10 @@ git rev-parse origin/main
 | T3.9 Testing and CI | 3.1–3.8 | D4/D10: exact commands, Windows runner/toolchain, headless tests, fixtures, diagnostics, formatting/lint and benchmark recording policy. |
 | T3.10 T4 implementation plan | 3.1–3.9 | Ordered file-level tasks, tests before implementation, dependencies, acceptance matrix, scoped performance budgets and owner approval. |
 
+**T3.1 status:** P1–P8 complete; owner-approved staged licensing policy, ADR-002, technical contract, licensing assessment, checkpoint and D10 v0.1.2 accepted 2026-11-26 at `a09251b8482894b9e2ae01b9c5afc1281b0e6a4b`; ReShade exception accepted.
+
+**Licensing acceptance refinement (owner approved 2026-11-26):** reasonable compatibility, complete inventory, recorded obligations and restrictions at selection; T3.9 designs automated checks and exceptions; T4 implements enforcement and notice generation. Review changes; resolve affected rights before activation where applicable and before distribution. No distribution of unresolved rights. See accepted T3.1 licensing assessment.
+
 T3 review criteria: every contract identifies owner, inputs, outputs, invariant, failure behavior and tests; dependency APIs are verified against selected versions; license and platform constraints documented; no speculative crates or dependencies; quantitative thresholds needed for T4 are selected and justified or explicitly deferred to a named gate. A disposable probe is not the production foundation and must not be presented as T4 acceptance.
 
 **Stop:** No production foundation implementation until owner accepts T3 and the T4 plan.
@@ -94,12 +100,12 @@ T3 review criteria: every contract identifies owner, inputs, outputs, invariant,
 | Package | Prerequisites | Deliverable / acceptance evidence |
 |---|---|---|
 | T4.1 Bootstrap | T3 | Minimal Cargo package, accepted dependency versions, lockfile, license metadata, native Windows build and application launch. |
-| T4.2 Runtime boundary | 4.1 | Headless execution without graphics/audio runtime; presentation can start separately; headless smoke test. |
-| T4.3 Clock and schedules | 4.2 | Tests for pause, explicit stepping and ordered transitions under fixed inputs. |
+| T4.2 Runtime boundary | 4.1 | Headless execution without graphics/audio runtime; separate presentation, native graphical smoke, actual Bevy integration and headless smoke. |
+| T4.3 Clock and schedules | 4.2 | Tests for pause, explicit stepping and ordered transitions under fixed inputs; driver integration and material/presentation independence. |
 | T4.4 Seed and identity | 4.3 | Reproducible seeded fixture, durable IDs independent of ECS handles, duplicate/referential failure tests. |
-| T4.5 Content validation | 4.4 | Load a minimal valid definition set; malformed/unknown references rejected with useful diagnostics and no partial authoritative state. |
-| T4.6 Spatial and snapshot primitives | 4.4–4.5 | Implement only approved primitives needed by T5/T6; precision and minimal snapshot tests per T3 contracts. |
-| T4.7 CI and closure | 4.1–4.6 | Clean Windows checkout build/run, headless suite, formatting/lint policy, CI evidence, dependency/license inventory, recorded diagnostics. |
+| T4.5 Content validation | 4.4 | Load a minimal valid external JSON definition set using approved parser pins; malformed/unknown references rejected with useful diagnostics and no partial authoritative state. |
+| T4.6 Spatial and snapshot primitives | 4.4–4.5 | Implement only approved primitives needed by T5/T6; precision and typed in-memory snapshot tests per T3 contracts. |
+| T4.7 CI and closure | 4.1–4.6 | Clean Windows checkout build/run, headless suite, formatting/lint policy, CI evidence, dependency/license inventory, automated license policy enforcement and notice generation, recorded diagnostics. |
 
 Suggested Cargo commands, subject to T3 feature/target design: `cargo fmt --all -- --check`, `cargo clippy --all-targets -- -D warnings`, `cargo test`, `cargo build`. Record actual feature flags and runner in T3, not assumed here. Confirm that headless execution does not initialize graphics or audio; whether it shares compile-time dependencies is a separate architecture decision. Validate snapshot behavior at foundation scope; full material continuation belongs to T5.
 
@@ -119,7 +125,7 @@ Candidate fixture from D0 §11.2, D1 §8 and D6A §16: two connected systems; co
 | T5.4 Logistics | 5.3 | Persistent shipment dispatch, progress, exclusive terminal outcome and exactly-once destination credit. |
 | T5.5 Operations and intervention | 5.4 | Readiness and contingent operation resolution from shared facts; unattended path plus supply, sabotage and direct combat-outcome inputs represented abstractly. |
 | T5.6 Detail handoff | 5.4–5.5 | Active/remote representations reconcile identity, quantities, progress and pending effects without duplicate authority. |
-| T5.7 Persistence and replay | 5.6 | Mid-transit snapshot/restore and canonical replay, including pending outcomes. |
+| T5.7 Persistence and replay | 5.6 | Mid-transit snapshot/restore and canonical replay, including pending outcomes; encoded snapshot and durable write/recovery contracts D9-P22/P23. |
 | T5.8 Explanation and closure | 5.7 | Inspect causal references, run acceptance matrix, record benchmark and regressions. |
 
 ### 6.1 Required causal acceptance matrix
@@ -261,7 +267,7 @@ For GUI playtests, include build identity, control settings, scenario, observati
 
 D0 vision; D1 engineering/product requirements; D3 universe/geography; D4 technical architecture; D5 flight/ship/combat; D6 economy/factions/logistics; D6A/B worldbuilding; D7 agents and command; D8 missions; D9 persistence/content/modding; D10 roadmap/evidence; ADRs record significant decisions. D2 retired. No requirement to produce empty full specifications before use. Document contracts in the relevant owner document when needed, link rather than duplicate requirements, and revise affected documents on approved changes.
 
-Active initial Sources: D0 v1.1.1, D1 v2.1.1, D6A v0.2.1, D6B v0.2.1, D10 v0.1.1, ADR-001 v1.0. Project instructions are maintained separately and applied in Project settings. Old project documents remain archived and outside active authority.
+Active Sources on consolidated acceptance: D0 v1.1.1, D1 v2.1.1, D6A/D6B v0.2.1, D3/D4/D9 v1.0.0, D10 v0.1.3, ADR-001 v1.0.1, ADR-002 v1.1.0, ADR-003–006 v1.0.0, T4 plan v1.0.0 and T3 checkpoints. Preserve accepted T3.1 evidence. Project instructions maintained separately; old versions archived outside active authority.
 
 ## 14. Source register and revision limits
 
@@ -273,7 +279,30 @@ Active initial Sources: D0 v1.1.1, D1 v2.1.1, D6A v0.2.1, D6B v0.2.1, D10 v0.1.1
 
 This draft elaborates work-package dependencies, proposed acceptance details and post-T7 backlog without selecting technical implementations. No live repository inspection, dependency research, code modification or tests performed for this document. Numerical budgets, fixture details and later gate order require owner approval. The stale active worldbuilding references were reconciled in this editorial revision. No milestone is newly accepted by issuance of this document.
 
-**Current stop point:** T2 remains open. Review and synchronize the reconciled documentation baseline, update Sources and settings, then accept T2 before beginning T3.1.
+**Current stop point:** T3.1 accepted; T3.2–T3.10 final review baseline prepared; streamlined verification approved. Explicit consolidated acceptance and banking required before T4.1.
 
 
 **Reconciliation record (2026-11-26):** Editorial patch of 0.1 to 0.1.1; active references updated, owner-approved CC BY 4.0 documentation/lore policy incorporated, and outstanding T2 evidence distinguished from completed checks. Earlier migration records describe the preceding revision. No new gameplay, canon or technical implementation is authorized.
+
+
+**Revision 0.1.2 (accepted):** T2/T3.1 acceptance and staged licensing policy; retained historical T2 evidence. This full revision incorporates those dispositions and the T3 closure addendum.
+
+## Final verification disposition — 2026-11-26
+
+Owner approved ending disposable verification after V1 and transferring remaining implementation checks to T4. This supersedes earlier statements requiring V2/V3 before T3 closure. It does not waive any production acceptance criterion. Final consolidated design approval and banking remain explicit.
+
+| Evidence | Actual result / disposition |
+|---|---|
+| Repository | Owner git fetch and local/remote HEAD both `a09251b8482894b9e2ae01b9c5afc1281b0e6a4b`, main; draft documents untracked, historical D10 v0.1.1 deletion observed; no later clean checkout asserted |
+| Toolchain | Rust 1.100.0 (0ef1bc386), Cargo 1.100.0 (3acc79c0c), MSVC 14.52.37025, VS Community 2026 18.12.1, host/target x64 confirmed in final owner output |
+| V1.3 | cargo info confirmed serde 1.0.228 (MSRV 1.56), serde_json 1.0.154 (1.71), cargo-deny 0.19.9 and cargo-about 0.9.3 (both 1.88.0); all declared MIT OR Apache-2.0 |
+| V1.4 | Native decoder build 10.08 s, 28/28 tests; initial collapsible_if lint corrected; locked offline 28/28, fmt, Clippy -D warnings, execution `Validated 2 definitions` passed |
+| V1.5 | Bevy 0.20.1 + exact parser pins; headless build 59.82 s, client build 3m43s; 28/28 tests each; Clippy completed both (manifest unused Bevy warning expected in decoder-only fixture); targeted graphics/audio exclusions passed; 567 locked third-party packages reported; counts do not prove identical inventory |
+| Evidence integrity | Owner generated five standalone decoder baseline hashes after excluding checksum output itself; combined graph/build logs retained locally; no independent byte verification of workstation files |
+| V2 / V2.5 | Not executed; explicit shared core driver, ordered steps and native graphical integration verified at T4.2–4.3; prior T3.1 graphical probe remains evidence only |
+| V3 | Not executed; candidate compliance tool install/CLI checks, scoped policy, positive/negative fixtures, notice generation and changed package reconciliation at T4.7; review dependency changes at introduction |
+| Performance / production | No production tests, benchmark or CI run; all matrix scenarios remain unexecuted as production acceptance tests |
+
+Evidence location: owner workstation `E:\RustProjects\IM_T3_Verification\evidence\V1` (decoder-baseline, combined, decoder-tests-final.txt, decoder-clippy-final.txt, decoder-run-final.txt); T3.1 evidence remains under its original probe. Owner-supplied console output in project conversation is the evidence for the statements above. The combined V1 graphs were not built with offline flags in that run; production cached offline verification remains mandatory. New blake3/constant_time_eq versions observed; reconcile exact name/version/source/license, inherited LIC issues, font and notice gaps. No redistribution clearance. No further disposable probes required for design closure.
+
+T4 plan v1.0.0 §6 specifies proposed fixture budgets (100 instances, 10,000 ticks, median <=10 s; typed capture/restore median <=10 ms each); owner approval required. No later gate order or lore changed.
