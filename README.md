@@ -40,11 +40,19 @@ Project design documents, architectural specifications, worldbuilding references
 
 ## License
 
+## License
+
 Project-owned source code is dual-licensed under either:
 
-- MIT License ([LICENSE-MIT](LICENSE-MIT))
-- Apache License, Version 2.0 ([LICENSE-APACHE](LICENSE-APACHE))
+- [MIT License](LICENSE-MIT)
+- [Apache License, Version 2.0](LICENSE-APACHE)
 
 At your option.
 
-Artwork, music, fictional content, and third-party materials may be subject to separate licensing terms, which will be documented alongside those materials.
+Project-owned documentation and original fictional lore are licensed under the [Creative Commons Attribution 4.0 International License (CC BY 4.0)](https://creativecommons.org/licenses/by/4.0/).
+
+See [LICENSE-CONTENT.md](LICENSE-CONTENT.md) for attribution requirements, licensing scope and exclusions.
+
+Official branding rights are separate. Artwork, music and audio not expressly released under the content license require separate licensing terms.
+
+Third-party materials retain their applicable licenses.
