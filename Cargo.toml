@@ -1,0 +1,14 @@
+[package]
+name = "interstellar_meridian"
+version = "0.1.0"
+edition = "2024"
+rust-version = "1.100.0"
+license = "MIT OR Apache-2.0"
+publish = false
+
+[features]
+default = []
+client = ["bevy/3d", "bevy/ui"]
+
+[dependencies]
+bevy = { version = "=0.20.1", default-features = false, features = ["std", "default_app"] }
